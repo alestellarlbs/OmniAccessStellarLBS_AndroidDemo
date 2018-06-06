@@ -306,13 +306,14 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    public void fetchLocation_withVisioGlobe(final String apikey) {
+    public void fetchLocation_withVisioGlobe(final String apikey, final String mapKey) {
         mapFragment = null;
         findViewById(R.id.floating_search_view).setVisibility(GONE);
         findViewById(R.id.button_container).setVisibility(GONE);
         FragmentManager fragmentManager = getSupportFragmentManager();
         visioglobeLocationFragment = new VisioglobeLocationFragment();
         visioglobeLocationFragment.rootMemorize(this);
+        visioglobeLocationFragment.setApiKey(mapKey);
         visioglobeSearchFragment = new VisioglobeSearchFragment();
         visioglobeSearchFragment.rootMemorize(this);
         fragmentManager.beginTransaction().replace(R.id.main_content, visioglobeLocationFragment).commit();
@@ -463,7 +464,7 @@ public class MainActivity extends AppCompatActivity {
         if (venue == R.id.edemomap) {
             Alogger.setJournal("MainActivity", "fetch EDEMO site with VISIO & key:" + _keys.getAppColeDemoKey());
             CopyFileForEmulation(); // Copy GWL file for Colombes
-            fetchLocation_withVisioGlobe(_keys.getAppColeDemoKey());
+            fetchLocation_withVisioGlobe(_keys.getAppColeDemoKey(), _keys.getVisioMapColKey());
             return;
         } else {
             DeleteEmulationFile();
@@ -474,11 +475,11 @@ public class MainActivity extends AppCompatActivity {
         //Jerome Elleouet -
         if (venue == R.id.brestmap) {
             Alogger.setJournal("MainActivity", "fetch brest site with VISIO & key:" + _keys.getAppBrestKey());
-            fetchLocation_withVisioGlobe(_keys.getAppBrestKey());
+            fetchLocation_withVisioGlobe(_keys.getAppBrestKey(), _keys.getVisioMapBrestKey());
 
         } else if (venue == R.id.colombesmap) {
             Alogger.setJournal("MainActivity", "fetch COLOMBES site with VISIO & key:" + _keys.getAppColKey());
-            fetchLocation_withVisioGlobe(_keys.getAppColKey());
+            fetchLocation_withVisioGlobe(_keys.getAppColKey(), _keys.getVisioMapColKey());
         } else    //MAPWIZE
         {
             fetchLocation_withMapwize(venue);

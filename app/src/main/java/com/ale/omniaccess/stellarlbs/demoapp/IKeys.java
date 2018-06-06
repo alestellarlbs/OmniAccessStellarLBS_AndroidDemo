@@ -21,4 +21,7 @@ interface IKeys {
     String getAppHHCSXBKey();
     String getAppSimulKey();
     String getMwzApiKey();
+    String getVisioMapColKey();
+    String getVisioMapBrestKey();
+
 }

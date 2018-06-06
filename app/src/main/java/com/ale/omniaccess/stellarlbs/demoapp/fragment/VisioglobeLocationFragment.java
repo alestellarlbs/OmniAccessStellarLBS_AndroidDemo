@@ -74,7 +74,6 @@ import android.widget.Toast;
 import com.ale.omniaccess.stellarlbs.demoapp.MainActivity;
 import com.ale.omniaccess.stellarlbs.demoapp.R;
 import com.ale.omniaccess.stellarlbs.demoapp.util.Alogger;
-import com.mapbox.mapboxsdk.maps.MapView;
 import com.visioglobe.visiomoveessential.VMEMapView;
 import com.visioglobe.visiomoveessential.interfaces.VMEComputeRouteInterface;
 import com.visioglobe.visiomoveessential.interfaces.VMEMapInterface;
@@ -108,13 +107,19 @@ public class VisioglobeLocationFragment extends android.support.v4.app.Fragment 
 
     private boolean _mapLoaded;
     private Location currentLocation;
+    private String _apiKey;
 
     private LocationManager mLocationManager;
 
-    public VisioglobeLocationFragment() {
+    public VisioglobeLocationFragment()
+    {
         mDest = null;
     }
 
+    public void setApiKey(String apiKey)
+    {
+        _apiKey = apiKey;
+    }
     public void setDestination(String lDest)
     {
         mDest = lDest;
@@ -136,41 +141,16 @@ public class VisioglobeLocationFragment extends android.support.v4.app.Fragment 
         if (mFragment == null)
         {
             mLocationManager = (LocationManager) getContext().getSystemService(Context.LOCATION_SERVICE);
-
-            int a  = mainActivity.getVenue();
-            if (mainActivity.getVenue() == R.id.brestmap) {
-                mFragment = (ViewGroup) pInflater.inflate(R.layout.location_fragment_brest_visioglobe, pContainer, false);
-            }
-            else if (mainActivity.getVenue() == R.id.colombesmap)
-            {
-                mFragment = (ViewGroup) pInflater.inflate(R.layout.location_fragment_colombes_visioglobe, pContainer, false);
-            }
-            else if (mainActivity.getVenue() == R.id.edemomap)
-            {
-                mFragment = (ViewGroup) pInflater.inflate(R.layout.location_fragment_colombes_visioglobe, pContainer, false); // edemo = colombes
-            }
-            /*else if (mainActivity.getVenue() == R.id.positionSimul)
-            {
-                mFragment = (ViewGroup) pInflater.inflate(R.layout.location_fragment_brest_visioglobe, pContainer, false);
-            }
-
-            else if (mainActivity.getVenue() == R.id.simulgeofence)
-            {
-                mFragment = (ViewGroup) pInflater.inflate(R.layout.location_fragment_monaco_visioglobe, pContainer, false);
-            }*/
-
+            mFragment = (ViewGroup) pInflater.inflate(R.layout.location_fragment_visioglobe, pContainer, false); // edemo = colombes
             // Add Menu
             setHasOptionsMenu(true);
             // Fetch the views
             mMapView = (VMEMapView) mFragment.findViewById(R.id.map_view);
-
+            mMapView.setMapHash(_apiKey);
             // Set up map listener to know when map view has loaded.
             mMapView.setMapListener(mMapListener);
             // Load the map
             mMapView.loadMap();
-
-
-
         }
         else if (mMapView == null) {
             Log.i("VG Fragment", " onCreateView mMapView sans fragment");
