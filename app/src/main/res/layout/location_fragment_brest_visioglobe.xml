@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--BREST -->
+
+<com.visioglobe.visiomoveessential.VMEMapView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/map_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center|center_vertical|center_horizontal"
+    android:layout_weight="1"
+    app:mapHash="m940afbf14e55c904955df9d0b64218238b0e749d"
+    app:mapPath="asset://map_bundle_theme.zip"
+    app:mapSecretCode="0"/>
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/edemomap"  android:title="@string/eDemoColombes" android:checkable="true" android:onClick="changeMap" android:icon="@mipmap/logo_ale"/>
+    <item android:id="@+id/map"
+        android:icon="@drawable/ic_menu"
+        android:title="@string/map_selection">
+        <menu>
+            <group>
+                <item android:id="@+id/brestmap"  android:title="@string/ale_brest_visio" android:checkable="true" android:onClick="changeMap" android:icon="@mipmap/logo_ale"/>
+                <item android:id="@+id/colombesmap"  android:title="@string/ale_colombes_visio" android:checkable="true" android:onClick="changeMap" android:icon="@mipmap/logo_ale"/>
+                <item android:id="@+id/brestmapbox"  android:title="@string/ale_brest_mapwize" android:checkable="true" android:onClick="changeMap" android:icon="@mipmap/logo_ale"/>
+                <item android:id="@+id/buenosairesmap"  android:title="@string/ale_argentine_mapwize" android:checkable="true" android:onClick="changeMap" android:icon="@mipmap/logo_ale"/>
+                <item android:id="@+id/ibmmap"  android:title="@string/ibm" android:onClick="changeMap" android:checkable="true" android:icon="@mipmap/logo_ibm"/>
+                <item android:id="@+id/HHCSXBmap"  android:title="@string/HHCSXB" android:checkable="true" android:onClick="changeMap" android:icon="@mipmap/hhcsxb"/>
+            </group>
+        </menu>
+    </item>
+    <item android:id="@+id/debug"
+        android:title="@string/settings">
+        <menu>
+            <item android:id="@+id/debugActivity" android:title="@string/rainbow" android:onClick="toDebugActivity"/>
+        </menu>
+    </item>
+    <item android:id="@+id/tracking" android:title="@string/tracking" android:checkable="true" android:onClick="toPeopleTracking"/>
+    <item android:id="@+id/exit" android:title="@string/exit" android:onClick="toExit"/>
+
+</menu>

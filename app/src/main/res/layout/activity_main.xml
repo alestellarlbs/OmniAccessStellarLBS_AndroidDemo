@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ale.omniaccess.stellarlbs.demoapp.MainActivity">
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9">
+        <com.arlib.floatingsearchview.FloatingSearchView
+            android:id="@+id/floating_search_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:floatingSearch_backgroundColor="#00E5FF"
+            app:floatingSearch_close_search_on_keyboard_dismiss="true"
+            app:floatingSearch_dimBackground="false"
+            app:floatingSearch_dismissFocusOnItemSelection="true"
+            app:floatingSearch_dismissOnOutsideTouch="true"
+            app:floatingSearch_leftActionMode="showHamburger"
+            app:floatingSearch_searchBarMarginLeft="16dp"
+            app:floatingSearch_searchBarMarginRight="16dp"
+            app:floatingSearch_searchBarMarginTop="16dp"
+            app:floatingSearch_searchHint="Search..."
+            app:floatingSearch_showSearchKey="true"
+            app:floatingSearch_suggestionsListAnimDuration="250">
+        </com.arlib.floatingsearchview.FloatingSearchView>
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/button_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Button"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/buttonStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Start"
+            android:visibility="visible"
+            android:onClick="startDirection"/>
+
+        <Button
+            android:id="@+id/buttonStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Stop"
+            android:visibility="gone"
+            android:onClick="stopDirection"/>
+
+        <Button
+            android:id="@+id/buttonInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Info"
+            android:onClick="showInfos"
+            android:visibility="visible"/>
+    </LinearLayout>
+
+
+</LinearLayout>

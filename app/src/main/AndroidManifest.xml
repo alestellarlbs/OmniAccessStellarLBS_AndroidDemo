@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ale.omniaccess.stellarlbs.demoapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:name="com.ale.omniaccess.stellarlbs.demoapp.MainApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:logo="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <service android:name="com.ale.omniaccess.stellarlbs.demoapp.services.AndroidService" />
+        <service
+            android:name="com.polestar.naosdk.controllers.AndroidGeofencingService"
+            android:exported="true"
+            android:label="@string/app_name"    />
+
+        <service
+            android:name="com.polestar.models.GeofenceTransition"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:process=":geofencing" />
+
+        <receiver
+            android:name="com.polestar.models.RegisterGeofenceGPSReceiver"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.location.PROVIDERS_CHANGED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+
+        <activity
+            android:launchMode="singleTask"
+            android:name="com.ale.omniaccess.stellarlbs.demoapp.MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter android:autoVerify="true" android:label="lbsapp">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"
+                    android:host="ec2-52-14-144-186.us-east-2.compute.amazonaws.com"
+                    android:pathPrefix="/lbsapp"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="lbsapp"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ale.omniaccess.stellarlbs.demoapp.BrowserActivity"
+            android:parentActivityName="com.ale.omniaccess.stellarlbs.demoapp.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ale.omniaccess.stellarlbs.demoapp.DebugActivity"
+            android:parentActivityName="com.ale.omniaccess.stellarlbs.demoapp.MainActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

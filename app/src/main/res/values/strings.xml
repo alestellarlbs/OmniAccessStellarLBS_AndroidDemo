@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Stellar LBS Demo</string>
+    <string name="search_title">Search</string>
+    <string name="map_selection">Map Selection</string>
+    <string name="ale_brest_visio">ALE Brest Visio</string>
+    <string name="ale_colombes_visio">ALE Colombes Visio</string>
+    <string name="eDemoColombes">Remote EBC Demo</string>
+    <string name="ibm">IBM</string>
+    <string name="ale_argentine_mapwize">ALE Argentine Mapwize</string>
+    <string name="ale_brest_mapwize">ALE Brest Mapwize</string>
+    <string name="HHCSXB">Hacking Health Camp Strasbourg</string>
+    <string name="emulate">Emulate positions</string>
+    <string name="rainbow">Rainbow</string>
+    <string name="exit">Exit</string>
+    <string name="tracking">People Tracking</string>
+    <string name="rainbowlogin">Login</string>
+    <string name="rainbowpassword">Password</string>
+    <string name="configuration">Place</string>
+    <string name="simulation">Simulation</string>
+    <string name="settings">Configuration</string>
+    <string name="email_address">email</string>
+    <string name="password">password</string>
+    <string name="action_sign_in">SIGN IN !</string>
+</resources>
